@@ -13,6 +13,11 @@ CORS(app, supports_credentials=True)  # 设置跨域
 # http://127.0.0.1:8095
 @app.route('/')
 def hello_world():
+    return render_template('maskcheck-index.html')
+
+# http://127.0.0.1:8095/test
+@app.route('/test')
+def testhtml():
     return render_template('uploadtest.html')
 
 # http://127.0.0.1:8095/information
@@ -54,7 +59,13 @@ def editorData():
 
     img_path = url
     img_stream = return_img_stream(file_path)
-    return render_template('response.html', img_stream=img_stream)
+    return render_template('maskcheck-result.html', img_stream=img_stream)
+
+# http://127.0.0.1:8095/assets
+@app.route('/assets', methods=['GET', 'POST'])
+def returnAssets():
+    print(request)
+    return "d"
 
 if __name__ == '__main__':
     app.run(port=8095, debug=True)
