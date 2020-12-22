@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title></title>
 
   <title></title>
 
@@ -41,24 +42,14 @@
   <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
 </head>
 
-</head>
-  <body class="bg-light-gray" id="body">
+  <body id="body">
       <div class="container d-flex flex-column justify-content-between vh-100">
       <div class="row justify-content-center mt-5">
         <div class="col-xl-5 col-lg-6 col-md-10">
           <div class="card">
             <div class="card-header bg-primary">
               <div class="app-brand">
-                <a href="/index.html">
-                  <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="30" height="33"
-                    viewBox="0 0 30 33">
-                    <g fill="none" fill-rule="evenodd">
-                      <path class="logo-fill-blue" fill="#7DBCFF" d="M0 4v25l8 4V0zM22 4v25l8 4V0z" />
-                      <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
-                    </g>
-                  </svg>
-                  <span class="brand-name">口罩识别检测</span>
-                </a>
+                <span class="brand-name">口罩识别检测</span>
               </div>
             </div>
             <div class="card-body p-5">
@@ -72,10 +63,9 @@
                         <input type="file" name="image" id="file" ref="clearFile" v-on:click="showname()">
                       </div>
                     </button>
-                    <div id="fileform" style="width:500px;height:50px;margin:auto;margin-top: 15px;color:cornflowerblue;">
+                    <div id="fileform" style="width:500px;height:50px;margin:auto;margin-top: 15px;">
                       <p><font id="uploadbackname" style="color:cornflowerblue;">{{ file_name }}</font></p>
                     </div>
-                    <!--<input name="smid" id="smid" type="hidden"> -->
                   </div>
                   <div class="form-footer col-md-12 mb-4 border-top">
                     <button type="submit" class="btn btn-lg btn-primary btn-block mb-4" >检测</button>
@@ -87,7 +77,7 @@
                 var fileform = new Vue({
 	              el:'#fileform',
                   data:{
-	                file_name:'选择文件'
+	                file_name:'选择文件：支持jpg、png格式文件'
                   },
                   methods:{
 	                showname:function(){
@@ -288,6 +278,13 @@
     </style>
 </div>
 <!--旋转正方体 end-->
-<body background="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608004481489&di=38703e965177797c3359cf498edfb41f&imgtype=0&src=http%3A%2F%2Fstatics.qdxin.cn%2Fuploadfile%2F2020%2F0215%2F20200215041716714.jpg";style="tab-interval:21pt;text-justify-trim:punctuation;" >
-</body>
+<body class="background" >
+</body >
+<style type="text/css">
+            .background{ 
+			background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608004481489&di=38703e965177797c3359cf498edfb41f&imgtype=0&src=http%3A%2F%2Fstatics.qdxin.cn%2Fuploadfile%2F2020%2F0215%2F20200215041716714.jpg);
+            background-repeat: no-repeat;   
+            background-size: cover;     
+        }
+</style>
 </html>
