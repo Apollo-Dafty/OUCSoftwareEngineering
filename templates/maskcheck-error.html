@@ -1,7 +1,6 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
 
@@ -38,32 +37,23 @@
   <![endif]-->
   <script src="{{ url_for('static',filename='assets/plugins/nprogress/nprogress.js') }}"></script>
 </head>
-
-</head>
-  <body class="bg-light-gray" id="body">
+  <body id="body">
       <div class="container d-flex flex-column justify-content-between vh-100">
       <div class="row justify-content-center mt-5">
         <div class="col-xl-5 col-lg-6 col-md-10">
           <div class="card">
-            <div class="card-header bg-primary">
-              <div class="app-brand">
-                <a href="/index.html">
-                  <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" width="30" height="33"
-                    viewBox="0 0 30 33">
-                    <g fill="none" fill-rule="evenodd">
-                      <path class="logo-fill-blue" fill="#7DBCFF" d="M0 4v25l8 4V0zM22 4v25l8 4V0z" />
-                      <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
-                    </g>
-                  </svg>
-                  <span class="brand-name">口罩识别检测系统</span>
-                </a>
+            <div class="card-header bg-danger">
+              <div class="app-brand bg-danger">
+                  <span class="brand-name">口罩识别检测</span>
               </div>
             </div>
             <div class="card-body p-5">
 
-              <h3 class="text-danger mb-5">错误！</h3>
+              <h3 class="text-dark mb-3 text-center">错误！</h3>
                 <div class="row">
-                  <h4 class="mb-5 ">您上传的文件不是图片！</h4>
+                  <div class="alert alert-warning" role>
+                  <h5><i class="mdi mdi-alert mr-1"></i>您上传的文件不是图片，或不符合规定的图片格式</h5>
+                </div>
                   <a href="#" onClick="javascript :history.back(-1);" class="btn btn-lg btn-primary btn-block mb-4" >返回</a>
                 </div>
             </div>
@@ -257,6 +247,13 @@
     </style>
 </div>
 <!--旋转正方体 end-->
-<body background="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608004481489&di=38703e965177797c3359cf498edfb41f&imgtype=0&src=http%3A%2F%2Fstatics.qdxin.cn%2Fuploadfile%2F2020%2F0215%2F20200215041716714.jpg";style="tab-interval:21pt;text-justify-trim:punctuation;" >
-</body>
+<body class="background" >
+</body >
+<style type="text/css">
+            .background{ 
+			background-image: url(https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1608004481489&di=38703e965177797c3359cf498edfb41f&imgtype=0&src=http%3A%2F%2Fstatics.qdxin.cn%2Fuploadfile%2F2020%2F0215%2F20200215041716714.jpg);
+            background-repeat: no-repeat;   
+            background-size: cover;     
+        }
+</style>
 </html>
