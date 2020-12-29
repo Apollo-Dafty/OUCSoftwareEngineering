@@ -39,6 +39,33 @@
   <script src="assets/plugins/nprogress/nprogress.js"></script>
   <!--Vue.js-->
   <script src="https://cdn.staticfile.org/vue/2.2.2/vue.min.js"></script>
+  <script type="text/javascript">
+	function fileChange(target) {
+		var imgName = document.all.file.value;
+		var ext, idx;
+		if (imgName == '') {
+			document.all.submit_upload.disabled = true;
+			alert("请选择需要上传的文件!");
+			return;
+		} else {
+			idx = imgName.lastIndexOf(".");
+			if (idx != -1) {
+				ext = imgName.substr(idx + 1).toUpperCase();
+				ext = ext.toLowerCase();
+				if (ext != 'jpg' && ext != 'png' && ext != 'jpeg') {
+					document.all.submit_upload.disabled = true;
+					alert("只能上传.jpg  .png  .jpeg类型的文件!");
+					return;
+				} else {
+					document.all.submit_upload.disabled = false;
+				}
+			} else {
+				document.all.submit_upload.disabled = true;
+				alert("只能上传.jpg  .png  .jpeg类型的文件!");
+				return;
+			}
+		}
+	}
 </head>
 
 </head>
@@ -57,19 +84,19 @@
                       <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
                     </g>
                   </svg>
-                  <span class="brand-name">����ʶ����ϵͳ</span>
+                  <span class="brand-name">口罩识别检测系统</span>
                 </a>
               </div>
             </div>
             <div class="card-body p-5">
 
-              <h3 class="text-dark mb-5">�ϴ�ͼƬ</h3>
+              <h3 class="text-dark mb-5">上传图片</h3>
               <form action="maskcheck-result.html">
                 <div class="row">
                   <div id="fileform" class="form-group col-md-12 mb-4">
-                    <button type="button" class="upload btn btn-primary btn-large" >�ϴ�
+                    <button type="button" class="upload btn btn-primary btn-large" >上传
                       <div style="margin-top:-30px;margin-left:-200px;opacity:0">
-                        <input type="file" name="file" id="file" ref="clearFile" v-on:click="showname()">
+                        <input type="file" name="image" id="file" ref="clearFile" v-on:click="showname()" onchange="fileChange(this);" accept="image/*">
                       </div>
                     </button>
                     <div id="fileform" style="width:500px;height:50px;margin:auto;margin-top: 15px;color:cornflowerblue;">
@@ -78,7 +105,7 @@
                     <!--<input name="smid" id="smid" type="hidden"> -->
                   </div>
                   <div class="form-footer col-md-12 mb-4 border-top">
-                    <button type="submit" class="btn btn-lg btn-primary btn-block mb-4" >���</button>
+                    <button type="submit" class="btn btn-lg btn-primary btn-block mb-4" id="submit_upload" disabled/>检测</button>
                   </div>
                 </div>
               </form>
@@ -87,11 +114,11 @@
                 var fileform = new Vue({
 	              el:'#fileform',
                   data:{
-	                file_name:'ѡ���ļ�'
+	                file_name:'选择文件'
                   },
                   methods:{
 	                showname:function(){
-			           var file_name='��ѡ���ļ�'
+			           var file_name='已选择文件'
 	                }
                   }
                 })
