@@ -144,13 +144,13 @@ def run_on_video(video_path, output_video_name, conf_thresh):
                                                                    write_frame_stamp - inference_stamp))
     # writer.release()
 
-def zyy(imgPath):
-    file_path = imgPath + 'new'
-    img = cv2.imread(imgPath)
-    img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    img = inference(img, show_result=True, target_shape=(360, 360))
-    img.save(file_path)
-    return file_path
+def zyy(imgPath, newImgPath):
+    image = cv2.imdecode(np.fromfile(imgPath, dtype=np.uint8), 1)
+    cv2.imwrite(newImgPath, image)
+    image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+    image = inference(image, show_result=True, target_shape=(360, 360))
+    image.save(newImgPath)
+    #cv2.imencode('.jpg', image)[1].tofile(newImgPath)
 
 if __name__ == "__main123__":
     parser = argparse.ArgumentParser(description="Face Mask Detection")
@@ -211,15 +211,15 @@ def editorData():
     path = basedir + "/static/img/"
     # 图片名称 使用随机数防止重复
     imgName = str(random.randint(0, 999999)) + img.filename
+    newImgName = 'new' + imgName
     # 图片path和名称组成图片的保存路径
     file_path = path + imgName
+    newImgName = path + newImgName
     # 保存图片
     img.save(file_path)
-    # img_path是图片的路径
-    img_path = '/static/img/' + imgName
 
-    output_path = zyy(img_path)
-    img_stream = return_img_stream(output_path)
+    zyy(file_path, newImgName)
+    img_stream = return_img_stream(newImgName)
     return render_template('maskcheck-result.html', img_stream=img_stream)
 
 # http://127.0.0.1:8095/assets
